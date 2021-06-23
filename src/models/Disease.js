@@ -34,26 +34,27 @@ const diseaseSchema=new mongoose.Schema({
                 throw new Error('Invalid Date!')
         }
     },
-    characteristic: {
+    characteristics: {
         type: characteristicSchema
     }
 });
 
 const Disease= mongoose.model('Disease', diseaseSchema);
 const data={
-    "name": "Covid-19",
-    "period": '2-21-2021',
-    "characteristic": {
-        "communicable": true,
-        "symptoms": "fever high temp"
-    }
+    "name": "AIDS",
+    "period": "12-16-20",
+    "password": "Sandy@#$123"
 }
-const disease = new Disease(data);
+/*const disease = new Disease(data);
 try {
+    const d=new Date(), p=data.period.split('-');
+    d.setMonth(+p[0]-1);
+    d.setDate(+p[1]);
+    d.setFullYear(+p[2]+2000)
+    disease.period=new Date(d);
     disease.save();
-    console.log("Posted!");
+    console.log("Disease saved!");
 } catch (err) {
-    console.log(err);
-}
-
+    console.log(err)
+}*/
 module.exports = Disease
